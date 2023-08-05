@@ -1,2 +1,2 @@
-export { Alert } from "./Alert";
-export { Button, IconButton } from "./Button";
+export * from "./Alert";
+export * from "./Button";

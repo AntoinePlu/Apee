@@ -1,4 +1,4 @@
-import { Alert, AlertDescription, AlertTitle } from "@apee/components/ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "@apee/components/ui";
 import { trumpGothic } from "@apee/lib/fonts";
 import { cn } from "@apee/lib/utils";
 import { createReader } from "@keystatic/core/reader";
