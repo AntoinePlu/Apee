@@ -38,20 +38,16 @@ export default async function Home() {
             "uppercase text-5xl leading-[normal] text-white mt-2.5 tracking-[0.96px]",
             trumpGothic.className
           )}
-        >
-          {homepageData?.jobTitle}
-        </h2>
+          dangerouslySetInnerHTML={{ __html: homepageData?.jobTitle }}
+        />
         <div>
           <h3
             className={cn(
               "inline-block uppercase text-5xl leading-[normal] text-transparent tracking-[0.96px] bg-gradient-to-br from-apee-gamingYellow via-apee-gamingOrange via-35% to-apee-gamingPurple bg-clip-text",
               trumpGothic.className
             )}
-          >
-            {homepageData?.catchphraseLine1}
-            <br />
-            {homepageData?.catchphraseLine2}
-          </h3>
+            dangerouslySetInnerHTML={{ __html: homepageData?.catchphrase }}
+          />
         </div>
         <a
           className={cn(

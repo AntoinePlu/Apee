@@ -1,10 +1,11 @@
 // keystatic.config.ts
-import { config, fields, singleton } from "@keystatic/core";
+import { config, fields, singleton, collection } from "@keystatic/core";
 
 export default config({
   storage: {
     kind: "local",
   },
+
   singletons: {
     homepage: singleton({
       label: "Homepage",
@@ -12,9 +13,42 @@ export default config({
       schema: {
         intro: fields.text({ label: "Intro" }),
         jobTitle: fields.text({ label: "Job Title" }),
-        catchphraseLine1: fields.text({ label: "Catchprase (Line 1)" }),
-        catchphraseLine2: fields.text({ label: "Catchprase (Line 2)" }),
+        catchphrase: fields.text({ label: "Catchprase" }),
         email: fields.text({ label: "Email" }),
+      },
+    }),
+  },
+
+  collections: {
+    projectCategories: collection({
+      label: "Project Categories",
+      path: "src/content/projectCategories/*/",
+      slugField: "name",
+      schema: {
+        name: fields.slug({
+          name: {
+            label: "Name",
+            description: "The name of the category",
+          },
+        }),
+      },
+    }),
+    projects: collection({
+      label: "Projects",
+      slugField: "name",
+      path: "src/content/projects/*/",
+      schema: {
+        name: fields.slug({
+          name: {
+            label: "Name",
+            description: "The name of the project",
+          },
+        }),
+        category: fields.relationship({
+          label: "Category",
+          description: "The category this project is related to",
+          collection: "projectCategories",
+        }),
       },
     }),
   },
