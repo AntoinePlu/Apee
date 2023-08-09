@@ -14,7 +14,7 @@ import Link from "next/link";
 
 export default function Navigation() {
   return (
-    <nav className="w-64 flex flex-col justify-between p-4 [.full-width_&]:opacity-50 transition-opacity">
+    <nav className="w-64 flex flex-col justify-between px-4 pt-8 pb-4">
       <section className="flex flex-col gap-y-4">
         <div>
           <FullWidthToggle />

@@ -16,11 +16,12 @@ module.exports = {
       },
     },
     colors: {
-      gray: generateScale("gray"),
-      indigo: generateScale("indigo"),
-      grass: generateScale("grass"),
-      orange: generateScale("orange"),
-      tomato: generateScale("tomato"),
+      gray: generateColorScale("gray"),
+      indigo: generateColorScale("indigo"),
+      grass: generateColorScale("grass"),
+      orange: generateColorScale("orange"),
+      tomato: generateColorScale("tomato"),
+      white: generateAlphaScale("white"),
       transparent: "transparent",
       apee: {
         black: "hsl(0, 0%, 7%)",
@@ -67,6 +68,9 @@ module.exports = {
       },
     },
     extend: {
+      transitionProperty: {
+        flex: "flex-basis",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -91,7 +95,7 @@ module.exports = {
   plugins: [require("tailwindcss-animate")],
 };
 
-function generateScale(color) {
+function generateColorScale(color) {
   const scale = Array.from({ length: 12 }, (_, i) => {
     const id = i + 1;
     return [
@@ -108,7 +112,28 @@ function generateScale(color) {
       ["solid-hover", `var(--${color}-10)`],
       ["text-low", `var(--${color}-11)`],
       ["text-high", `var(--${color}-12)`],
+      [`a${id}`, `var(--${color}-a${id})`],
+      ["alpha-background", `var(--${color}-a1)`],
+      ["alpha-surface", `var(--${color}-a2)`],
+      ["alpha-component1", `var(--${color}-a3)`],
+      ["alpha-component2", `var(--${color}-a4)`],
+      ["alpha-component3", `var(--${color}-a5)`],
+      ["alpha-border1", `var(--${color}-a6)`],
+      ["alpha-border2", `var(--${color}-a7)`],
+      ["alpha-border3", `var(--${color}-a8)`],
+      ["alpha-solid", `var(--${color}-a9)`],
+      ["alpha-solid-hover", `var(--${color}-a10)`],
+      ["alpha-text-low", `var(--${color}-a11)`],
+      ["alpha-text-high", `var(--${color}-a12)`],
     ];
+  }).flat();
+  return Object.fromEntries(scale);
+}
+
+function generateAlphaScale(color) {
+  const scale = Array.from({ length: 12 }, (_, i) => {
+    const id = i + 1;
+    return [[id, `var(--${color}-a${id})`]];
   }).flat();
   return Object.fromEntries(scale);
 }

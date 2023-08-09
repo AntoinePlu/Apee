@@ -9,7 +9,7 @@ export function FullWidthToggle() {
   };
 
   return (
-    <Button variant="icon" size="icon" onClick={toggleFullWidth}>
+    <Button variant="icon" size="icon-md" onClick={toggleFullWidth}>
       <LeftPaneIcon />
     </Button>
   );
