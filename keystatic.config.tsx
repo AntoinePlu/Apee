@@ -49,8 +49,8 @@ export default config({
                 >
                   <h2>{title.value}</h2>
                   <h3>
-                    {company.value} - {startDate.value.slice(0, 4)} -{" "}
-                    {endDate.value.slice(0, 4)}
+                    {company.value} - {(startDate.value || "").slice(0, 4)} -{" "}
+                    {(endDate.value || "").slice(0, 4)}
                   </h3>
                 </div>
               ),

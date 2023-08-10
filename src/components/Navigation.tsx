@@ -86,7 +86,7 @@ type NavigationItemProps = {
   active: boolean;
   route: string;
   label: string;
-  icon: React.R;
+  icon: React.ElementType;
 };
 
 function NavigationItem({
