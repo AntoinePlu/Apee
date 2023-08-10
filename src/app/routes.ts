@@ -1,5 +1,7 @@
 const routes = {
   home: "/",
+  about: "/about",
+  projects: "/projects",
   admin: {
     home: "/keystatic",
   },

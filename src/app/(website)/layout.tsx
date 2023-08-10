@@ -10,9 +10,12 @@ export const metadata: Metadata = {
   description: "Senior designer passionate about sports and gaming",
 };
 
-export default function RootLayout(
-  { children }: { children: React.ReactNode }
-) {
+export default function RootLayout({
+  children,
+
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className={cn("dark relative flex min-h-screen", inter.className)}>

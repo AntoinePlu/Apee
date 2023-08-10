@@ -36,7 +36,7 @@ export default async function Home() {
         <h2
           className={cn(
             "uppercase text-5xl leading-[normal] text-white mt-2.5 tracking-[0.96px]",
-            trumpGothic.className
+            trumpGothic.className,
           )}
           dangerouslySetInnerHTML={{ __html: homepageData?.jobTitle }}
         />
@@ -44,7 +44,7 @@ export default async function Home() {
           <h3
             className={cn(
               "inline-block uppercase text-5xl leading-[normal] text-transparent tracking-[0.96px] bg-gradient-to-br from-apee-gamingYellow via-apee-gamingOrange via-35% to-apee-gamingPurple bg-clip-text",
-              trumpGothic.className
+              trumpGothic.className,
             )}
             dangerouslySetInnerHTML={{ __html: homepageData?.catchphrase }}
           />
@@ -53,7 +53,7 @@ export default async function Home() {
           className={cn(
             "mt-10 inline-flex p-0.5 items-center justify-center text-sm/9 rounded-md",
             "bg-gradient-to-r from-apee-ctaOrange via-apee-ctaYellow to-apee-ctaEgg",
-            "transition-all duration-200 bg-left bg-[length:200%] hover:bg-[length:100%]"
+            "transition-all duration-200 bg-left bg-[length:200%] hover:bg-[length:100%]",
           )}
           href={`mailto:${homepageData.email}`}
         >

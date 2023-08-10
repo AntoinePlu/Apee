@@ -1,3 +1,4 @@
+"use client";
 import routes from "@apee/app/routes";
 import { FullWidthToggle } from "@apee/components/FullWidthToggle";
 import {
@@ -10,9 +11,19 @@ import {
   PlaneLandingIcon,
 } from "@apee/components/icons";
 import { Button } from "@apee/components/ui";
+import { cn } from "@apee/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const MAIN_MENU = [
+  { route: routes.home, label: "Home", icon: PlaneLandingIcon },
+  { route: routes.about, label: "About", icon: PersonStackIcon },
+  { route: routes.projects, label: "Projects", icon: BriefcaseIcon },
+];
 
 export default function Navigation() {
+  const pathname = usePathname();
+
   return (
     <nav className="w-64 flex flex-col justify-between px-4 pt-8 pb-4">
       <section className="flex flex-col gap-y-4">
@@ -36,18 +47,13 @@ export default function Navigation() {
           </form>
 
           <ul className="flex flex-col gap-y-1">
-            <li className="h-9 py-2 px-2.5 flex items-center gap-x-2.5 rounded-lg text-gray-text-high bg-gray-component2">
-              <PlaneLandingIcon />
-              <span>Home</span>
-            </li>
-            <li className="h-9 py-2 px-2.5 flex items-center gap-x-2.5 rounded-lg">
-              <PersonStackIcon />
-              <span>About</span>
-            </li>
-            <li className="h-9 py-2 px-2.5 flex items-center gap-x-2.5 rounded-lg">
-              <BriefcaseIcon />
-              <span>Projects</span>
-            </li>
+            {MAIN_MENU.map((menuItem) => (
+              <NavigationItem
+                {...menuItem}
+                active={menuItem.route === pathname}
+                key={menuItem.label}
+              />
+            ))}
           </ul>
 
           <section className="flex-1">
@@ -73,5 +79,36 @@ export default function Navigation() {
         </Button>
       </section>
     </nav>
+  );
+}
+
+type NavigationItemProps = {
+  active: boolean;
+  route: string;
+  label: string;
+  icon: React.R;
+};
+
+function NavigationItem({
+  active,
+  label,
+  route,
+  icon: Icon,
+}: NavigationItemProps) {
+  return (
+    <li>
+      <Link
+        href={route}
+        className={cn(
+          "h-9 py-2 px-2.5 flex items-center gap-x-2.5 rounded-lg",
+          {
+            "text-gray-text-high bg-gray-component2": active,
+          },
+        )}
+      >
+        <Icon />
+        <span>{label}</span>
+      </Link>
+    </li>
   );
 }
