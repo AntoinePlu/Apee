@@ -12,7 +12,6 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-
 }: {
   children: React.ReactNode;
 }) {
@@ -23,8 +22,8 @@ export default function RootLayout({
           <Navigation />
         </div>
         <div className="absolute inset-0 flex min-h-screen pointer-events-none">
-          <div className="flex-[0_0_256px] h-full [.full-width_&]:flex-[0_1_16px] transition-flex ease-out duration-200 overflow-hidden" />
-          <main className="relative bg-gray-surface rounded-3xl flex-auto flex flex-col m-4 ml-0 pointer-events-auto overflow-hidden">
+          <div className="flex-[0_0_256px] min-h-full min-w-[16px] [.full-width_&]:flex-[0_1_16px] transition-flex ease-out duration-200" />
+          <main className="relative bg-gray-surface rounded-3xl flex-auto flex flex-col m-4 ml-0 pointer-events-auto">
             <div className="opacity-0 [.full-width_&]:opacity-100 transition-opacity delay-300 absolute top-4 left-4">
               <FullWidthToggle />
             </div>

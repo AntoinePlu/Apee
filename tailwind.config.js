@@ -135,5 +135,5 @@ function generateAlphaScale(color) {
     const id = i + 1;
     return [[id, `var(--${color}-a${id})`]];
   }).flat();
-  return Object.fromEntries(scale);
+  return Object.fromEntries([["DEFAULT", color], ...scale]);
 }

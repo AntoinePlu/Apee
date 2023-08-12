@@ -1,13 +1,10 @@
 import { Alert, AlertDescription, AlertTitle } from "@apee/components/ui";
 import { trumpGothic } from "@apee/lib/fonts";
+import { keystatic } from "@apee/lib/keystatic";
 import { cn } from "@apee/lib/utils";
-import { createReader } from "@keystatic/core/reader";
-import config from "keystatic.config";
-
-const reader = createReader(process.cwd(), config);
 
 export default async function Home() {
-  const homepageData = await reader.singletons.homepage.read();
+  const homepageData = await keystatic.singletons.homepage.read();
 
   if (!homepageData) {
     return (

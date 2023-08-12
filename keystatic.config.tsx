@@ -34,38 +34,32 @@ export default config({
           label: "Content",
           layouts: [[1], [1, 1]],
           formatting: true,
+          links: true,
 
           componentBlocks: {
-            jobPosition: component({
-              preview: ({
-                fields: { title, company, startDate, endDate, companyLogo },
-              }) => (
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    flex: 1,
-                  }}
-                >
-                  <h2>{title.value}</h2>
-                  <h3>
-                    {company.value} - {(startDate.value || "").slice(0, 4)} -{" "}
-                    {(endDate.value || "").slice(0, 4)}
-                  </h3>
-                </div>
+            experience: component({
+              preview: ({ fields: { title, organization } }) => (
+                <h2>
+                  {title.value} @ {organization.value}
+                </h2>
               ),
-              label: "Job position",
+              label: "Experience",
               schema: {
                 title: fields.text({ label: "Title" }),
-                company: fields.text({ label: "Company" }),
-                startDate: fields.date({ label: "Start date" }),
-                endDate: fields.date({ label: "End date" }),
-                companyLogo: fields.image({
-                  label: "Company logo",
-                  directory: "public/assets/images/company-logos/",
-                  publicPath: "/assets/images/company-logos/",
+                organization: fields.text({ label: "Organizatoin" }),
+                startYear: fields.text({ label: "Start year" }),
+                endYear: fields.text({ label: "End year" }),
+                logo: fields.image({
+                  label: "Logo",
+                  directory: "public/images/logos/",
+                  publicPath: "/images/logos/",
                 }),
               },
+            }),
+            portrait: component({
+              preview: () => <p>Portrait</p>,
+              label: "Portrait",
+              schema: {},
             }),
           },
         }),
