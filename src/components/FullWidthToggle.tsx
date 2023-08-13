@@ -1,6 +1,6 @@
 "use client";
 
-import { LeftPaneIcon } from "@apee/components/icons";
+import { SidebarIcon } from "@apee/components/icons";
 import { Button } from "@apee/components/ui";
 
 export function FullWidthToggle() {
@@ -10,7 +10,7 @@ export function FullWidthToggle() {
 
   return (
     <Button variant="icon" size="icon-md" onClick={toggleFullWidth}>
-      <LeftPaneIcon />
+      <SidebarIcon />
     </Button>
   );
 }
