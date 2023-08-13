@@ -18,13 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("dark relative flex min-h-screen", inter.className)}>
-        <div className="flex min-h-screen w-64 [.full-width_&]:opacity-50 transition-opacity">
+        <div className="flex min-h-screen w-64 transition-opacity [.full-width_&]:opacity-50">
           <Navigation />
         </div>
-        <div className="absolute inset-0 flex min-h-screen pointer-events-none">
-          <div className="flex-[0_0_256px] min-h-full min-w-[16px] [.full-width_&]:flex-[0_1_16px] transition-flex ease-out duration-200" />
-          <main className="relative bg-gray-surface rounded-3xl flex-auto flex flex-col m-4 ml-0 pointer-events-auto">
-            <div className="opacity-0 [.full-width_&]:opacity-100 transition-opacity delay-300 absolute top-4 left-4">
+        <div className="pointer-events-none absolute inset-0 flex min-h-screen">
+          <div className="min-h-full min-w-[16px] flex-[0_0_256px] transition-flex duration-200 ease-out [.full-width_&]:flex-[0_1_16px]" />
+          <main className="pointer-events-auto relative m-4 ml-0 flex flex-auto flex-col rounded-3xl bg-gray-surface">
+            <div className="absolute left-4 top-4 opacity-0 transition-opacity delay-300 [.full-width_&]:opacity-100">
               <FullWidthToggle />
             </div>
             {children}

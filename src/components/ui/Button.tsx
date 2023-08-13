@@ -8,7 +8,7 @@ const buttonVariants = cva(
   cn(
     "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors",
     "ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-    "disabled:pointer-events-none"
+    "disabled:pointer-events-none",
   ),
   {
     variants: {
@@ -30,7 +30,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 export interface ButtonProps
@@ -49,12 +49,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       />
     );
-  }
+  },
 );
 Button.displayName = "Button";
 
 const IconButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => <Button variant="icon" {...props} ref={ref} />
+  (props, ref) => <Button variant="icon" {...props} ref={ref} />,
 );
 IconButton.displayName = "IconButton";
 

@@ -8,7 +8,7 @@ export default async function Home() {
 
   if (!homepageData) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center">
+      <div className="flex flex-1 flex-col items-center justify-center">
         <div>
           <Alert variant="destructive">
             <AlertTitle>Error</AlertTitle>
@@ -25,14 +25,14 @@ export default async function Home() {
   }
 
   return (
-    <div className="flex-1 flex flex-col justify-center bg-[url('/assets/images/home.svg')] bg-cover">
+    <div className="flex flex-1 flex-col justify-center bg-[url('/assets/images/home.svg')] bg-cover">
       <header className="p-[120px]">
         <h1 className="text-xl/6 uppercase opacity-60">
           {homepageData?.intro}
         </h1>
         <h2
           className={cn(
-            "uppercase text-5xl leading-[normal] text-white mt-2.5 tracking-[0.96px]",
+            "mt-2.5 text-5xl uppercase leading-[normal] tracking-[0.96px] text-white",
             trumpGothic.className,
           )}
           dangerouslySetInnerHTML={{ __html: homepageData?.jobTitle }}
@@ -40,7 +40,7 @@ export default async function Home() {
         <div>
           <h3
             className={cn(
-              "inline-block uppercase text-5xl leading-[normal] text-transparent tracking-[0.96px] bg-gradient-to-br from-apee-gamingYellow via-apee-gamingOrange via-35% to-apee-gamingPurple bg-clip-text",
+              "inline-block bg-gradient-to-br from-apee-gamingYellow via-apee-gamingOrange via-35% to-apee-gamingPurple bg-clip-text text-5xl uppercase leading-[normal] tracking-[0.96px] text-transparent",
               trumpGothic.className,
             )}
             dangerouslySetInnerHTML={{ __html: homepageData?.catchphrase }}
@@ -48,13 +48,13 @@ export default async function Home() {
         </div>
         <a
           className={cn(
-            "mt-10 inline-flex p-0.5 items-center justify-center text-sm/9 rounded-md",
+            "mt-10 inline-flex items-center justify-center rounded-md p-0.5 text-sm/9",
             "bg-gradient-to-r from-apee-ctaOrange via-apee-ctaYellow to-apee-ctaEgg",
-            "transition-all duration-200 bg-left bg-[length:200%] hover:bg-[length:100%]",
+            "bg-[length:200%] bg-left transition-all duration-200 hover:bg-[length:100%]",
           )}
           href={`mailto:${homepageData.email}`}
         >
-          <span className="px-5 bg-apee-black text-white uppercase font-bold rounded">
+          <span className="rounded bg-apee-black px-5 font-bold uppercase text-white">
             {homepageData?.email.replace("@", " @ ")}
           </span>
         </a>

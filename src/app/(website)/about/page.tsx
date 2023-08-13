@@ -15,7 +15,7 @@ export default async function AboutPage() {
 
   if (!content) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center">
+      <div className="flex flex-1 flex-col items-center justify-center">
         <div>
           <Alert variant="destructive">
             <AlertTitle>Error</AlertTitle>
@@ -32,7 +32,7 @@ export default async function AboutPage() {
   }
 
   return (
-    <div className="flex flex-1 flex-col px-32 py-20 gap-y-32">
+    <div className="flex flex-1 flex-col gap-y-32 px-32 py-20">
       <DocumentRenderer
         document={content}
         renderers={{
@@ -41,7 +41,7 @@ export default async function AboutPage() {
               switch (props.layout.join(",")) {
                 case "1,1":
                   return (
-                    <div className="grid gap-16 grid-cols-2">
+                    <div className="grid grid-cols-2 gap-16">
                       {props.children.map((child) => (
                         <div className="space-y-6" key={child.key}>
                           {child}
@@ -72,7 +72,7 @@ export default async function AboutPage() {
           portrait: () => <img src="https://placehold.co/400/2e2e2e/ededed" />,
           experience: ({ title, organization, startYear, endYear, logo }) => {
             return (
-              <div className="flex gap-4 items-start">
+              <div className="flex items-start gap-4">
                 <Image
                   src={logo}
                   alt={`Logo for ${organization}`}
