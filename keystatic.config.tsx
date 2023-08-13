@@ -68,19 +68,6 @@ export default config({
   },
 
   collections: {
-    projectCategories: collection({
-      label: "Project Categories",
-      path: "src/content/projectCategories/*/",
-      slugField: "name",
-      schema: {
-        name: fields.slug({
-          name: {
-            label: "Name",
-            description: "The name of the category",
-          },
-        }),
-      },
-    }),
     projects: collection({
       label: "Projects",
       slugField: "name",
@@ -92,10 +79,41 @@ export default config({
             description: "The name of the project",
           },
         }),
-        category: fields.relationship({
-          label: "Category",
-          description: "The category this project is related to",
-          collection: "projectCategories",
+      },
+    }),
+    collections: collection({
+      label: "Collections",
+      path: "src/content/collections/*",
+      slugField: "name",
+      schema: {
+        name: fields.slug({
+          name: {
+            label: "Name",
+            description: "The name of the collection",
+          },
+        }),
+        description: fields.document({
+          label: "Description",
+          formatting: true,
+          links: true,
+        }),
+      },
+    }),
+    bookmarks: collection({
+      label: "Bookmarks",
+      slugField: "name",
+      path: "src/content/bookmarks/*",
+      schema: {
+        name: fields.slug({
+          name: {
+            label: "Name",
+            description: "The name of the bookmark",
+          },
+        }),
+        collection: fields.relationship({
+          label: "Collection",
+          description: "The collection this bookmark should be part of",
+          collection: "collections",
         }),
       },
     }),

@@ -1,6 +1,7 @@
 import { FullWidthToggle } from "@apee/components/FullWidthToggle";
 import Navigation from "@apee/components/Navigation";
 import { inter } from "@apee/lib/fonts";
+import { keystatic } from "@apee/lib/keystatic";
 import { cn } from "@apee/lib/utils";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -10,16 +11,22 @@ export const metadata: Metadata = {
   description: "Senior designer passionate about sports and gaming",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const collections = await keystatic.collections.collections.all();
+  const collectionsForNavigation = collections.map(({ slug, entry }) => ({
+    slug,
+    name: entry.name,
+  }));
+
   return (
     <html lang="en">
       <body className={cn("dark relative flex min-h-screen", inter.className)}>
         <div className="flex min-h-screen w-64 transition-opacity [.full-width_&]:opacity-50">
-          <Navigation />
+          <Navigation collections={collectionsForNavigation} />
         </div>
         <div className="pointer-events-none absolute inset-0 flex min-h-screen">
           <div className="min-h-full min-w-[16px] flex-[0_0_256px] transition-flex duration-200 ease-out [.full-width_&]:flex-[0_1_16px]" />

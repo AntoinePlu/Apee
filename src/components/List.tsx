@@ -23,7 +23,7 @@ type ListItemProps = {
   active?: boolean;
   href: string;
   label: string;
-  icon: React.ElementType;
+  icon?: React.ElementType;
 };
 
 function ListItem({ active = false, label, href, icon: Icon }: ListItemProps) {
@@ -38,7 +38,9 @@ function ListItem({ active = false, label, href, icon: Icon }: ListItemProps) {
           },
         )}
       >
-        <Icon className={cn("fill-white-8", { "fill-white-10": active })} />
+        {Icon ? (
+          <Icon className={cn("fill-white-8", { "fill-white-10": active })} />
+        ) : null}
         <span>{label}</span>
       </Link>
     </li>

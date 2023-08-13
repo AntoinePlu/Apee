@@ -21,7 +21,20 @@ const MAIN_MENU = [
   { href: routes.projects, label: "Projects", icon: WorkIcon },
 ];
 
-export default function Navigation() {
+type Collection = {
+  slug: string;
+  name: string;
+};
+
+type NavigationProps = {
+  collections: Collection[];
+};
+
+export default function Navigation({ collections }: NavigationProps) {
+  const collectionMenu = collections.map(({ slug, name }) => ({
+    href: routes.collection(slug),
+    label: name,
+  }));
   return (
     <nav className="flex w-64 flex-col justify-between px-4 pb-4 pt-8">
       <section className="flex flex-col gap-y-4">
@@ -46,12 +59,13 @@ export default function Navigation() {
 
           <List items={MAIN_MENU} />
 
-          <section className="flex-1">
+          <section className="flex-1 space-y-1">
             <header className="flex items-center gap-x-1 pl-2 tracking-wide">
               <CollectionIcon className="fill-white-9" />
               <h2 className="text-xs uppercase text-white-9">Collections</h2>
             </header>
-            <ul></ul>
+
+            <List items={collectionMenu} />
           </section>
         </div>
       </section>
