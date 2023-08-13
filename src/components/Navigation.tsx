@@ -65,17 +65,17 @@ export default function Navigation() {
 
       <section className="flex items-center justify-between">
         <Button variant="icon" size="icon-lg" title="Settings">
-          <GearIcon />
+          <GearIcon className="w-6 h-6" />
         </Button>
         {process.env.NODE_ENV === "development" && (
           <Button variant="icon" size="icon-lg" asChild>
             <Link href={routes.admin.home} title="Go to admin">
-              <CheckerboardShieldIcon className="fill-orange-solid" />
+              <CheckerboardShieldIcon className="w-6 h-6 fill-orange-solid" />
             </Link>
           </Button>
         )}
         <Button variant="icon" size="icon-lg" title="Permalink to this page">
-          <HyperlinkIcon />
+          <HyperlinkIcon className="w-6 h-6" />
         </Button>
       </section>
     </nav>
