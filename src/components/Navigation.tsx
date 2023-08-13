@@ -1,6 +1,7 @@
 "use client";
 import routes from "@apee/app/routes";
 import { FullWidthToggle } from "@apee/components/FullWidthToggle";
+import List from "@apee/components/List";
 import {
   BriefcaseIcon,
   CheckerboardShieldIcon,
@@ -11,19 +12,15 @@ import {
   PlaneLandingIcon,
 } from "@apee/components/icons";
 import { Button } from "@apee/components/ui";
-import { cn } from "@apee/lib/utils";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 const MAIN_MENU = [
-  { route: routes.home, label: "Home", icon: PlaneLandingIcon },
-  { route: routes.about, label: "About", icon: PersonStackIcon },
-  { route: routes.projects, label: "Projects", icon: BriefcaseIcon },
+  { href: routes.home, label: "Home", icon: PlaneLandingIcon },
+  { href: routes.about, label: "About", icon: PersonStackIcon },
+  { href: routes.projects, label: "Projects", icon: BriefcaseIcon },
 ];
 
 export default function Navigation() {
-  const pathname = usePathname();
-
   return (
     <nav className="flex w-64 flex-col justify-between px-4 pb-4 pt-8">
       <section className="flex flex-col gap-y-4">
@@ -46,15 +43,7 @@ export default function Navigation() {
             </div>
           </form>
 
-          <ul className="flex flex-col gap-y-1">
-            {MAIN_MENU.map((menuItem) => (
-              <NavigationItem
-                {...menuItem}
-                active={menuItem.route === pathname}
-                key={menuItem.label}
-              />
-            ))}
-          </ul>
+          <List items={MAIN_MENU} />
 
           <section className="flex-1">
             <h2>Collections</h2>
@@ -79,36 +68,5 @@ export default function Navigation() {
         </Button>
       </section>
     </nav>
-  );
-}
-
-type NavigationItemProps = {
-  active: boolean;
-  route: string;
-  label: string;
-  icon: React.ElementType;
-};
-
-function NavigationItem({
-  active,
-  label,
-  route,
-  icon: Icon,
-}: NavigationItemProps) {
-  return (
-    <li>
-      <Link
-        href={route}
-        className={cn(
-          "flex h-9 items-center gap-x-2.5 rounded-lg px-2.5 py-2",
-          {
-            "bg-gray-component2 text-gray-text-high": active,
-          },
-        )}
-      >
-        <Icon />
-        <span>{label}</span>
-      </Link>
-    </li>
   );
 }
