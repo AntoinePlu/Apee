@@ -10,6 +10,13 @@ type CollectionPageProps = {
     slug: string;
   };
 };
+
+export async function generateStaticParams() {
+  const collections = await keystatic.collections.collections.list();
+
+  return collections.map((slug) => ({ slug }));
+}
+
 export default async function CollectionPage({ params }: CollectionPageProps) {
   const collection = await keystatic.collections.collections.read(params.slug);
   const bookmarks = await keystatic.collections.bookmarks.all();
