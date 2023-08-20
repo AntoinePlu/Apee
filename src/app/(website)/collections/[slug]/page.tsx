@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from "@apee/components/icons";
 import { Heading } from "@apee/components/ui";
 import { keystatic } from "@apee/lib/keystatic";
 import { DocumentRenderer } from "@keystatic/core/renderer";
@@ -20,6 +21,10 @@ export async function generateStaticParams() {
 export default async function CollectionPage({ params }: CollectionPageProps) {
   const collection = await keystatic.collections.collections.read(params.slug);
   const bookmarks = await keystatic.collections.bookmarks.all();
+  const authors = await keystatic.collections.authors.all();
+  const authorsBySlug = Object.fromEntries(
+    authors.map(({ slug, entry }) => [slug, entry]),
+  );
 
   if (collection === null) {
     notFound();
@@ -58,22 +63,37 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
       </header>
 
       <div className="grid grid-cols-3 gap-6">
-        {collectionBookmarks.map((bookmark) => (
-          <div key={bookmark.slug}>
-            {bookmark.entry.picture ? (
-              <Image
-                className="rounded-lg"
-                src={bookmark.entry.picture}
-                width={300}
-                height={200}
-                alt={""}
-              />
-            ) : (
-              <div className="">No picture</div>
-            )}
-            <p className="p-2 text-white-11">By {bookmark.entry.author}</p>
-          </div>
-        ))}
+        {collectionBookmarks.map(({ slug, entry: bookmark }) => {
+          const author = authorsBySlug[bookmark.author ?? ""];
+          return (
+            <div key={slug}>
+              {bookmark.picture ? (
+                <Image
+                  className="w-full rounded-lg"
+                  src={bookmark.picture}
+                  width={300}
+                  height={200}
+                  alt={""}
+                />
+              ) : (
+                <div className="">No picture</div>
+              )}
+              {author ? (
+                <p className="flex items-center gap-x-2 p-2 text-white-11">
+                  <span>
+                    By{" "}
+                    <strong className="font-semibold text-white">
+                      {author.name}
+                    </strong>
+                  </span>
+                  <Link href={bookmark.url || ""}>
+                    <ExternalLinkIcon />
+                  </Link>
+                </p>
+              ) : null}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
