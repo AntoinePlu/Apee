@@ -1,3 +1,4 @@
+import routes from "@apee/app/routes";
 import { ExternalLinkIcon } from "@apee/components/icons";
 import { Heading } from "@apee/components/ui";
 import { keystatic } from "@apee/lib/keystatic";
@@ -38,8 +39,8 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
 
   return (
     <div className="flex flex-1 flex-col gap-y-32 overflow-auto px-32 py-20">
-      <header className="grid grid-cols-4 px-24">
-        <div className="col-span-3 flex flex-col gap-y-6">
+      <header className="grid grid-cols-2 px-24">
+        <div className="flex flex-col gap-y-6">
           <Heading level={1}>{collection.name}</Heading>
           <DocumentRenderer
             document={description}
@@ -67,17 +68,19 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
           const author = authorsBySlug[bookmark.author ?? ""];
           return (
             <div key={slug}>
-              {bookmark.picture ? (
-                <Image
-                  className="w-full rounded-lg"
-                  src={bookmark.picture}
-                  width={300}
-                  height={200}
-                  alt={""}
-                />
-              ) : (
-                <div className="">No picture</div>
-              )}
+              <Link href={routes.collectionItem(params.slug, slug)}>
+                {bookmark.picture ? (
+                  <Image
+                    className="w-full rounded-lg"
+                    src={bookmark.picture}
+                    width={300}
+                    height={200}
+                    alt={""}
+                  />
+                ) : (
+                  <div className="">No picture</div>
+                )}
+              </Link>
               {author ? (
                 <p className="flex items-center gap-x-2 p-2 text-white-11">
                   <span>
