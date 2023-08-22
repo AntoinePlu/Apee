@@ -17,10 +17,10 @@ module.exports = {
     },
     colors: {
       gray: generateColorScale("gray"),
-      indigo: generateColorScale("indigo"),
       grass: generateColorScale("grass"),
       orange: generateColorScale("orange"),
       tomato: generateColorScale("tomato"),
+      violet: generateColorScale("violet"),
       white: generateAlphaScale("white"),
       transparent: "transparent",
       apee: {

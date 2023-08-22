@@ -1,6 +1,8 @@
 import { SVGProps } from "react";
 
-export const SidebarIcon = (props: SVGProps<SVGSVGElement>) => (
+export type IconProps = SVGProps<SVGSVGElement>;
+
+export const SidebarIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -13,7 +15,7 @@ export const SidebarIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const SettingIcon = (props: SVGProps<SVGSVGElement>) => (
+export const SettingIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -26,7 +28,7 @@ export const SettingIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const AdminIcon = (props: SVGProps<SVGSVGElement>) => (
+export const AdminIcon = (props: IconProps) => (
   <svg
     width="28"
     height="28"
@@ -39,7 +41,7 @@ export const AdminIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const LinkIcon = (props: SVGProps<SVGSVGElement>) => (
+export const LinkIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -56,7 +58,7 @@ export const LinkIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const LandingIcon = (props: SVGProps<SVGSVGElement>) => (
+export const LandingIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -69,7 +71,7 @@ export const LandingIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const MagnifyIcon = (props: SVGProps<SVGSVGElement>) => (
+export const MagnifyIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -82,7 +84,7 @@ export const MagnifyIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const SlideshowIcon = (props: SVGProps<SVGSVGElement>) => (
+export const SlideshowIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -95,7 +97,7 @@ export const SlideshowIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const WorkIcon = (props: SVGProps<SVGSVGElement>) => (
+export const WorkIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -108,7 +110,7 @@ export const WorkIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const DiscordIcon = (props: SVGProps<SVGSVGElement>) => (
+export const DiscordIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -121,7 +123,7 @@ export const DiscordIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const EyeglassesIcon = (props: SVGProps<SVGSVGElement>) => (
+export const EyeglassesIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -134,7 +136,7 @@ export const EyeglassesIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const CollectionIcon = (props: SVGProps<SVGSVGElement>) => (
+export const CollectionIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -147,7 +149,7 @@ export const CollectionIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const AboutIcon = (props: SVGProps<SVGSVGElement>) => (
+export const AboutIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -160,7 +162,7 @@ export const AboutIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const MagazineIcon = (props: SVGProps<SVGSVGElement>) => (
+export const MagazineIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -173,7 +175,7 @@ export const MagazineIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const WaveIcon = (props: SVGProps<SVGSVGElement>) => (
+export const WaveIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -186,7 +188,7 @@ export const WaveIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const PersonalCardIcon = (props: SVGProps<SVGSVGElement>) => (
+export const PersonalCardIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -199,7 +201,7 @@ export const PersonalCardIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const ClearIcon = (props: SVGProps<SVGSVGElement>) => (
+export const ClearIcon = (props: IconProps) => (
   <svg
     width="20"
     height="20"
@@ -212,7 +214,7 @@ export const ClearIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const ExternalLinkIcon = (props: SVGProps<SVGSVGElement>) => (
+export const ExternalLinkIcon = (props: IconProps) => (
   <svg
     width="16"
     height="16"
@@ -244,5 +246,18 @@ export const ExternalLinkIcon = (props: SVGProps<SVGSVGElement>) => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
+  </svg>
+);
+
+export const BurgerIcon = (props: IconProps) => (
+  <svg
+    fill="currentColor"
+    height="20"
+    width="20"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 329.988 329.988"
+    {...props}
+  >
+    <path d="M329.988,174.915c0-19.47-12.441-36.085-29.79-42.331c-0.773-27.953-15.317-53.871-41.16-73.203  c-25.264-18.899-58.62-29.307-93.923-29.307c-35.306,0-68.664,10.408-93.929,29.307c-25.819,19.313-40.361,45.201-41.161,73.123  C12.554,138.684,0,155.357,0,174.915c0,19.565,12.539,36.247,29.994,42.441v17.557c0,35.841,29.159,65,65,65h140  c35.841,0,65-29.159,65-65v-17.557C317.449,211.162,329.988,194.48,329.988,174.915z M285.228,189.925  c-0.079-0.001-0.155-0.012-0.234-0.012h-240c-0.079,0-0.156,0.011-0.235,0.012C36.601,189.802,30,183.121,30,174.915  c0-8.259,6.723-14.979,14.987-14.979H285c8.265,0,14.988,6.719,14.988,14.979C299.988,183.121,293.387,189.801,285.228,189.925z   M89.156,83.404c20.112-15.045,47.088-23.33,75.959-23.33c28.868,0,55.842,8.285,75.952,23.329  c17.167,12.842,27.294,29.206,28.932,46.533H60.223C61.861,112.61,71.989,96.246,89.156,83.404z M234.994,269.913h-140  c-19.299,0-35-15.701-35-35v-14.977h210v14.977C269.994,254.212,254.293,269.913,234.994,269.913z" />
   </svg>
 );

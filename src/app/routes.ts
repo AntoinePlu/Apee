@@ -7,6 +7,7 @@ const routes = {
     `/collections/${collectionSlug}/${itemSlug}`,
   admin: {
     home: "/keystatic",
+    showcase: "/showcase",
   },
 } as const;
 

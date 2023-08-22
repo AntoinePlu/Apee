@@ -4,6 +4,7 @@ import { FullWidthToggle } from "@apee/components/FullWidthToggle";
 import List from "@apee/components/List";
 import {
   AdminIcon,
+  BurgerIcon,
   CollectionIcon,
   LandingIcon,
   LinkIcon,
@@ -60,7 +61,7 @@ export default function Navigation({ collections }: NavigationProps) {
           <List items={MAIN_MENU} />
 
           <section className="flex-1 space-y-1">
-            <header className="flex items-center gap-x-1 pl-2 tracking-wide">
+            <header className="flex items-center gap-x-1 pl-1 tracking-wide">
               <CollectionIcon className="fill-white-9" />
               <h2 className="text-xs uppercase text-white-9">Collections</h2>
             </header>
@@ -75,11 +76,21 @@ export default function Navigation({ collections }: NavigationProps) {
           <SettingIcon className="h-6 w-6" />
         </Button>
         {process.env.NODE_ENV === "development" && (
-          <Button variant="icon" size="icon-lg" asChild>
-            <Link href={routes.admin.home} title="Go to admin">
-              <AdminIcon className="h-6 w-6 fill-orange-solid" />
-            </Link>
-          </Button>
+          <>
+            <Button variant="icon" size="icon-lg" asChild>
+              <Link href={routes.admin.home} title="Go to admin">
+                <AdminIcon className="h-6 w-6 fill-orange-solid" />
+              </Link>
+            </Button>
+            <Button variant="icon" size="icon-lg" asChild>
+              <Link
+                href={routes.admin.showcase}
+                title="Go to design system showcase"
+              >
+                <BurgerIcon className="h-6 w-6 fill-tomato-solid" />
+              </Link>
+            </Button>
+          </>
         )}
         <Button variant="icon" size="icon-lg" title="Permalink to this page">
           <LinkIcon className="h-6 w-6" />
