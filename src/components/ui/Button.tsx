@@ -278,9 +278,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = "Button";
 
-const IconButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => <Button variant="icon" {...props} ref={ref} />,
-);
-IconButton.displayName = "IconButton";
-
-export { Button, buttonVariants, IconButton };
+export { Button, buttonVariants };

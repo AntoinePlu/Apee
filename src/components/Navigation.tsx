@@ -13,8 +13,7 @@ import {
   SlideshowIcon,
   WorkIcon,
 } from "@apee/components/icons";
-import { Button } from "@apee/components/ui";
-import Link from "next/link";
+import { IconButton, IconButtonLink } from "@apee/components/ui";
 
 const MAIN_MENU = [
   { href: routes.home, label: "Home", icon: LandingIcon },
@@ -72,29 +71,36 @@ export default function Navigation({ collections }: NavigationProps) {
       </section>
 
       <section className="flex items-center justify-between">
-        <Button variant="icon" size="icon-lg" title="Settings">
-          <SettingIcon className="h-6 w-6" />
-        </Button>
+        <IconButton
+          size="large"
+          title="Settings"
+          icon={SettingIcon}
+          iconClassName="h-6 w-6"
+        />
         {process.env.NODE_ENV === "development" && (
           <>
-            <Button variant="icon" size="icon-lg" asChild>
-              <Link href={routes.admin.home} title="Go to admin">
-                <AdminIcon className="h-6 w-6 fill-orange-solid" />
-              </Link>
-            </Button>
-            <Button variant="icon" size="icon-lg" asChild>
-              <Link
-                href={routes.admin.showcase}
-                title="Go to design system showcase"
-              >
-                <BurgerIcon className="h-6 w-6 fill-tomato-solid" />
-              </Link>
-            </Button>
+            <IconButtonLink
+              size="large"
+              href={routes.admin.home}
+              title="Go to admin"
+              icon={AdminIcon}
+              iconClassName="h-6 w-6 fill-orange-solid"
+            />
+            <IconButtonLink
+              size="large"
+              href={routes.admin.showcase}
+              title="Go to design system showcase"
+              icon={BurgerIcon}
+              iconClassName="h-6 w-6 fill-tomato-solid"
+            />
           </>
         )}
-        <Button variant="icon" size="icon-lg" title="Permalink to this page">
-          <LinkIcon className="h-6 w-6" />
-        </Button>
+        <IconButton
+          size="large"
+          title="Permalink to this page"
+          icon={LinkIcon}
+          iconClassName="h-6 w-6"
+        />
       </section>
     </nav>
   );
