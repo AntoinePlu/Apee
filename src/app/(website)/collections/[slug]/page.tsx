@@ -70,6 +70,7 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
       </header>
 
       <CollectionGrid
+        collectionSlug={collection.slug}
         bookmarks={collectionBookmarks}
         authorsBySlug={authorsBySlug}
       />
