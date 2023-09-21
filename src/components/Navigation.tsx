@@ -1,19 +1,19 @@
 "use client";
 import routes from "@apee/app/routes";
-import { FullWidthToggle } from "@apee/components/FullWidthToggle";
+import FullWidthToggle from "@apee/components/FullWidthToggle";
 import List from "@apee/components/List";
 import {
   AdminIcon,
   BurgerIcon,
-  CollectionIcon,
   LandingIcon,
   LinkIcon,
   MagnifyIcon,
   SettingIcon,
   SlideshowIcon,
+  SmallCollectionIcon,
   WorkIcon,
 } from "@apee/components/icons";
-import { IconButton, IconButtonLink } from "@apee/components/ui";
+import { Button, IconButton, IconButtonLink } from "@apee/components/ui";
 
 const MAIN_MENU = [
   { href: routes.home, label: "Home", icon: LandingIcon },
@@ -43,25 +43,15 @@ export default function Navigation({ collections }: NavigationProps) {
         </div>
 
         <div className="flex flex-col gap-y-6">
-          <form>
-            <div className="flex h-9 items-center justify-between gap-x-2.5 rounded-md border border-gray-border1 bg-gray-component1 p-2 pl-2.5 text-base/5 leading-none text-gray-text-low">
-              <div>
-                <MagnifyIcon />
-              </div>
-              <input
-                type="search"
-                placeholder="Search"
-                name="search"
-                className="inline-block appearance-none bg-transparent"
-              />
-            </div>
-          </form>
+          <Button icon={MagnifyIcon} accel="/">
+            Search
+          </Button>
 
           <List items={MAIN_MENU} />
 
           <section className="flex-1 space-y-1">
-            <header className="flex items-center gap-x-1 pl-1 tracking-wide">
-              <CollectionIcon className="fill-white-9" />
+            <header className="flex items-center gap-x-1 pl-1.5 tracking-wide">
+              <SmallCollectionIcon className="fill-white-9" />
               <h2 className="text-xs uppercase text-white-9">Collections</h2>
             </header>
 

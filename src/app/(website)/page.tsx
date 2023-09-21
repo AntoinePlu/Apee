@@ -1,7 +1,7 @@
 import { Alert, AlertDescription, AlertTitle } from "@apee/components/ui";
 import { trumpGothic } from "@apee/lib/fonts";
 import { keystatic } from "@apee/lib/keystatic";
-import { cn } from "@apee/lib/utils";
+import { cn } from "@apee/lib/styling";
 
 export default async function Home() {
   const homepageData = await keystatic.singletons.homepage.read();

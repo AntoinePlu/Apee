@@ -1,8 +1,8 @@
-import { FullWidthToggle } from "@apee/components/FullWidthToggle";
+import FullWidthToggle from "@apee/components/FullWidthToggle";
 import Navigation from "@apee/components/Navigation";
 import { inter } from "@apee/lib/fonts";
 import { keystatic } from "@apee/lib/keystatic";
-import { cn } from "@apee/lib/utils";
+import { cn } from "@apee/lib/styling";
 import type { Metadata } from "next";
 import "./globals.css";
 

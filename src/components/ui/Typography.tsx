@@ -1,6 +1,5 @@
 import { trumpGothic } from "@apee/lib/fonts";
-import { cn } from "@apee/lib/utils";
-import { VariantProps, cva } from "class-variance-authority";
+import { VariantProps, cn, cva } from "@apee/lib/styling";
 import React from "react";
 
 /**

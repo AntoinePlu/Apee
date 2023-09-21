@@ -1,6 +1,5 @@
 import { IconProps } from "@apee/components/icons";
-import { cn } from "@apee/lib/utils";
-import { VariantProps, cva } from "class-variance-authority";
+import { VariantProps, cn, cva } from "@apee/lib/styling";
 import Link from "next/link";
 import React from "react";
 

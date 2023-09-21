@@ -1,5 +1,6 @@
+import BookmarkFilter from "@apee/components/BookmarkFilter";
 import CollectionGrid from "@apee/components/CollectionGrid";
-import { Heading } from "@apee/components/ui";
+import CollectionHeader from "@apee/components/CollectionHeader";
 import { keystatic } from "@apee/lib/keystatic";
 import {
   hydrateAuthor,
@@ -9,8 +10,6 @@ import {
   loadModel,
 } from "@apee/lib/models";
 import { indexBy } from "@apee/lib/utils";
-import { DocumentRenderer } from "@keystatic/core/renderer";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 type CollectionPageProps = {
@@ -45,30 +44,8 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
 
   return (
     <div className="flex flex-1 flex-col gap-y-32 overflow-auto px-32 py-20">
-      <header className="grid grid-cols-2 px-24">
-        <div className="flex flex-col gap-y-6">
-          <Heading level={1}>{collection.name}</Heading>
-          <DocumentRenderer
-            document={collection.description}
-            renderers={{
-              block: {
-                paragraph: ({ children }) => (
-                  <p className="text-base text-white-11">{children}</p>
-                ),
-              },
-              inline: {
-                link: ({ children, href }) => (
-                  <Link className="text-white" href={href}>
-                    {children}
-                  </Link>
-                ),
-              },
-            }}
-          />
-        </div>
-        <div />
-      </header>
-
+      <CollectionHeader collection={collection} />
+      <BookmarkFilter bookmarks={bookmarks} />
       <CollectionGrid
         collectionSlug={collection.slug}
         bookmarks={collectionBookmarks}

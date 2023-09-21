@@ -1,9 +1,15 @@
+import { inter } from "@apee/lib/fonts";
 import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
 import { IconProps } from "@apee/components/icons";
-import { cn } from "@apee/lib/utils";
+import { VariantProps, cn, cva } from "@apee/lib/styling";
+
+export const BUTTON_SIZE = {
+  SMALL: "small",
+  REGULAR: "regular",
+  LARGE: "large",
+} as const;
 
 export const BUTTON_KIND = {
   PRIMARY: "primary",
@@ -17,23 +23,20 @@ export const BUTTON_EMPHASIS = {
   HIGH: "high",
 } as const;
 
-export const BUTTON_SIZE = {
-  SMALL: "small",
-  REGULAR: "regular",
-  LARGE: "large",
-} as const;
-
 const DEFAULT_CLASSNAMES = cn(
   "group inline-flex items-center space-x-2 text-base/none font-semibold transition-colors",
   "disabled:pointer-events-none",
 );
 
-const KIND_AND_EMPHASIS_VARIANTS = {
+const KIND_VARIANTS = {
   kind: {
     primary: "",
     accent: "",
     destructive: "",
   },
+};
+
+const EMPHASIS_VARIANTS = {
   emphasis: {
     low: "",
     medium: "",
@@ -41,18 +44,16 @@ const KIND_AND_EMPHASIS_VARIANTS = {
   },
 };
 
+const KIND_AND_EMPHASIS_VARIANTS = { ...KIND_VARIANTS, ...EMPHASIS_VARIANTS };
+
 const buttonVariants = cva(DEFAULT_CLASSNAMES, {
   variants: {
     size: {
-      small: "h-9 pl-3 pr-4",
-      regular: "h-9 rounded-lg pl-3 pr-4",
-      large: "h-9 pl-3 pr-4",
+      small: "",
+      regular: "h-9 rounded-lg pl-3 pr-2",
+      large: "",
     },
-    kind: {
-      primary: "",
-      accent: "",
-      destructive: "",
-    },
+    ...KIND_VARIANTS,
     emphasis: {
       low: "border",
       medium: "border",
@@ -178,7 +179,7 @@ const iconVariants = cva("", {
   ],
 });
 
-const labelVariants = cva("", {
+const labelVariants = cva("flex-1 text-left last:pr-2", {
   variants: KIND_AND_EMPHASIS_VARIANTS,
   compoundVariants: [
     {
@@ -222,7 +223,7 @@ const labelVariants = cva("", {
     {
       kind: "destructive",
       emphasis: "medium",
-      className: "group-disabled:text-violet-a8 text-white-12",
+      className: "text-white-12 group-disabled:text-violet-a8",
     },
     {
       kind: "destructive",
@@ -232,9 +233,73 @@ const labelVariants = cva("", {
   ],
 });
 
+const accelVariants = cva("", {
+  variants: {
+    size: {
+      small: "",
+      regular: "h-5 w-5 rounded text-sm leading-4",
+      large: "",
+    },
+    ...KIND_AND_EMPHASIS_VARIANTS,
+  },
+  compoundVariants: [
+    {
+      kind: "primary",
+      emphasis: "low",
+      className: "",
+    },
+    {
+      kind: "primary",
+      emphasis: "medium",
+      className: "bg-white-4 text-white-10",
+    },
+    {
+      kind: "primary",
+      emphasis: "high",
+      className: "",
+    },
+    {
+      kind: "accent",
+      emphasis: "low",
+      className: "",
+    },
+    {
+      kind: "accent",
+      emphasis: "medium",
+      className: "",
+    },
+    {
+      kind: "accent",
+      emphasis: "high",
+      className: "",
+    },
+    {
+      kind: "destructive",
+      emphasis: "low",
+      className: "",
+    },
+    {
+      kind: "destructive",
+      emphasis: "medium",
+      className: "",
+    },
+    {
+      kind: "destructive",
+      emphasis: "high",
+      className: "",
+    },
+  ],
+  defaultVariants: {
+    size: "regular",
+    kind: "primary",
+    emphasis: "medium",
+  },
+});
+
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
+  accel?: string;
   icon?: React.ComponentType<IconProps>;
   asChild?: boolean;
 }
@@ -242,6 +307,7 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
+      accel,
       children,
       className,
       icon,
@@ -271,6 +337,16 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           >
             {children}
           </span>
+          {accel ? (
+            <kbd
+              className={cn(
+                inter.className,
+                accelVariants({ size, kind, emphasis }),
+              )}
+            >
+              {accel}
+            </kbd>
+          ) : null}
         </>
       </Comp>
     );

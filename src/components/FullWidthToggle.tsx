@@ -3,7 +3,7 @@
 import { SidebarIcon } from "@apee/components/icons";
 import { IconButton } from "@apee/components/ui";
 
-export function FullWidthToggle() {
+export default function FullWidthToggle() {
   const toggleFullWidth = () => {
     document.body.classList.toggle("full-width");
   };

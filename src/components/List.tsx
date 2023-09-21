@@ -1,6 +1,6 @@
 "use client";
-import { cn } from "@apee/lib/utils";
-import Link from "next/link";
+import Link from "@apee/components/Link";
+import { cn } from "@apee/lib/styling";
 import { usePathname } from "next/navigation";
 
 type ListProps = {
