@@ -65,6 +65,13 @@ export default async function Home() {
           ))}
         </div>
       </section>
+
+      <section className="space-y-4">
+        <Heading level={2}>Form elements</Heading>
+        <Heading level={3}>Checkboxes</Heading>
+        <div className="mt-4 grid max-w-md grid-cols-3 justify-items-start gap-6"></div>
+        <Checkbox></Checkbox>
+      </section>
     </div>
   );
 }

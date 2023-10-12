@@ -33,9 +33,13 @@ export interface IconButtonProps
 }
 
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ size, icon: Icon, iconClassName, ...props }, ref) => {
+  ({ className, size, icon: Icon, iconClassName, ...props }, ref) => {
     return (
-      <button className={iconButtonVariants({ size })} ref={ref} {...props}>
+      <button
+        className={cn(iconButtonVariants({ size }), className)}
+        ref={ref}
+        {...props}
+      >
         <Icon className={iconClassName} />
       </button>
     );

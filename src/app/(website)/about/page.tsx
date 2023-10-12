@@ -32,7 +32,7 @@ export default async function AboutPage() {
   }
 
   return (
-    <div className="flex flex-1 flex-col gap-y-32 overflow-auto px-32 py-20">
+    <div className="pt-18 flex flex-1 flex-col gap-y-32 overflow-auto px-6 pt-16 xl:px-32 xl:py-20">
       <DocumentRenderer
         document={content}
         renderers={{

@@ -222,7 +222,7 @@ const labelVariants = cva("", {
     {
       kind: "destructive",
       emphasis: "medium",
-      className: "group-disabled:text-violet-a8 text-white-12",
+      className: "text-white-12 group-disabled:text-violet-a8",
     },
     {
       kind: "destructive",
@@ -258,7 +258,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp
-        className={cn(buttonVariants({ size, kind, emphasis }))}
+        className={cn(buttonVariants({ size, kind, emphasis }), className)}
         ref={ref}
         {...props}
       >
