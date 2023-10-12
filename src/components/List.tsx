@@ -32,7 +32,7 @@ function ListItem({ active = false, label, href, icon: Icon }: ListItemProps) {
       <Link
         href={href}
         className={cn(
-          "flex h-9 items-center gap-x-2.5 rounded-lg px-2.5 py-2 font-medium text-white-11 hover:bg-white-3",
+          "flex h-9 items-center gap-x-2.5 rounded-lg px-2.5 py-2 font-medium text-white-11 transition-colors hover:bg-white-3",
           {
             "bg-white-4 text-white-12": active,
           },
