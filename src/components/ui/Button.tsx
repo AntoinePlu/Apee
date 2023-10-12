@@ -24,7 +24,7 @@ export const BUTTON_SIZE = {
 } as const;
 
 const DEFAULT_CLASSNAMES = cn(
-  "group inline-flex items-center space-x-2 text-base/none font-semibold transition-colors",
+  "group inline-flex items-center space-x-2 text-base/none font-medium transition-colors",
   "disabled:pointer-events-none",
 );
 
@@ -45,7 +45,7 @@ const buttonVariants = cva(DEFAULT_CLASSNAMES, {
   variants: {
     size: {
       small: "h-9 pl-3 pr-4",
-      regular: "h-9 rounded-lg pl-3 pr-4",
+      regular: "h-9 rounded-lg pl-3 pr-2",
       large: "h-9 pl-3 pr-4",
     },
     kind: {
@@ -178,7 +178,7 @@ const iconVariants = cva("", {
   ],
 });
 
-const labelVariants = cva("", {
+const labelVariants = cva("flex-1 text-left", {
   variants: KIND_AND_EMPHASIS_VARIANTS,
   compoundVariants: [
     {
@@ -190,7 +190,8 @@ const labelVariants = cva("", {
     {
       kind: "primary",
       emphasis: "medium",
-      className: "text-white-12 group-disabled:text-white-8",
+      className:
+        "text-white-10 group-hover:text-white-11 group-active:text-white-12 group-disabled:text-white-8",
     },
     {
       kind: "primary",
@@ -232,9 +233,33 @@ const labelVariants = cva("", {
   ],
 });
 
+const accelVariants = cva("", {
+  variants: {
+    ...KIND_AND_EMPHASIS_VARIANTS,
+    size: {
+      small: "",
+      regular: "h-5 w-5 rounded text-xs/5",
+      large: "",
+    },
+  },
+  compoundVariants: [
+    {
+      kind: "primary",
+      emphasis: "medium",
+      className: "bg-white-4 text-white-10",
+    },
+  ],
+  defaultVariants: {
+    size: "regular",
+    kind: "primary",
+    emphasis: "medium",
+  },
+});
+
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
+  accel?: string;
   icon?: React.ComponentType<IconProps>;
   asChild?: boolean;
 }
@@ -242,6 +267,7 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
+      accel,
       children,
       className,
       icon,
@@ -264,13 +290,23 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         <>
           {Icon ? (
-            <Icon className={cn(iconVariants({ kind, emphasis }))} />
+            <Icon className={cn("icon", iconVariants({ kind, emphasis }))} />
           ) : null}
           <span
-            className={cn(labelVariants({ kind, emphasis }), { "ml-1": !Icon })}
+            className={cn("label", labelVariants({ kind, emphasis }), {
+              "ml-1": !Icon,
+              "mr-2": !accel,
+            })}
           >
             {children}
           </span>
+          {accel ? (
+            <span
+              className={cn("accel", accelVariants({ size, kind, emphasis }))}
+            >
+              {accel}
+            </span>
+          ) : null}
         </>
       </Comp>
     );

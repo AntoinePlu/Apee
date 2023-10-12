@@ -13,7 +13,7 @@ import {
   SlideshowIcon,
   WorkIcon,
 } from "@apee/components/icons";
-import { IconButton, IconButtonLink } from "@apee/components/ui";
+import { Button, IconButton, IconButtonLink } from "@apee/components/ui";
 
 const MAIN_MENU = [
   { href: routes.home, label: "Home", icon: LandingIcon },
@@ -44,19 +44,15 @@ export default function Navigation({ collections }: NavigationProps) {
         </div>
 
         <div className="flex flex-col gap-y-6">
-          <form>
-            <div className="flex h-9 items-center justify-between gap-x-2.5 rounded-md border border-gray-border1 bg-gray-component1 p-2 pl-2.5 text-base/5 leading-none text-gray-text-low">
-              <div>
-                <MagnifyIcon />
-              </div>
-              <input
-                type="search"
-                placeholder="Search"
-                name="search"
-                className="inline-block appearance-none bg-transparent"
-              />
-            </div>
-          </form>
+          <Button
+            kind="primary"
+            emphasis="medium"
+            icon={MagnifyIcon}
+            accel="/"
+            className="[&>.label]:text-white-11"
+          >
+            Search
+          </Button>
 
           <List items={MAIN_MENU} />
 
