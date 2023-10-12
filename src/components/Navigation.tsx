@@ -92,7 +92,7 @@ export default function Navigation({ collections }: NavigationProps) {
               href={routes.admin.showcase}
               title="Go to design system showcase"
               icon={BurgerIcon}
-              iconClassName="h-6 w-6 fill-tomato-solid"
+              iconClassName="h-5 w-5 fill-tomato-solid"
             />
           </>
         )}

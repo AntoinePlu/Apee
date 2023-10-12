@@ -252,8 +252,8 @@ export const ExternalLinkIcon = (props: IconProps) => (
 export const BurgerIcon = (props: IconProps) => (
   <svg
     fill="currentColor"
-    height="20"
-    width="20"
+    height="16"
+    width="16"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 329.988 329.988"
     {...props}
