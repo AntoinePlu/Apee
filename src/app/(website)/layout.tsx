@@ -25,7 +25,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={cn("dark relative flex min-h-screen", inter.className)}>
-        <div className="flex min-h-screen w-64 opacity-50 transition-opacity [.nav-open_&]:opacity-100">
+        <div className="flex min-h-screen w-64 transition-opacity [.nav-open_&]:opacity-100">
           <Navigation collections={collectionsForNavigation} />
         </div>
         <div className="pointer-events-none absolute inset-0 flex min-h-screen">
