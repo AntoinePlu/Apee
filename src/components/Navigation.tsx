@@ -11,14 +11,13 @@ import {
   MagnifyIcon,
   SettingIcon,
   SlideshowIcon,
-  WorkIcon,
 } from "@apee/components/icons";
 import { Button, IconButton, IconButtonLink } from "@apee/components/ui";
 
 const MAIN_MENU = [
   { href: routes.home, label: "Home", icon: LandingIcon },
   { href: routes.about, label: "About", icon: SlideshowIcon },
-  { href: routes.projects, label: "Projects", icon: WorkIcon },
+  // { href: routes.projects, label: "Projects", icon: WorkIcon },
 ];
 
 type Collection = {
