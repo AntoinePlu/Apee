@@ -3,16 +3,16 @@ import {
   BUTTON_EMPHASIS,
   BUTTON_KIND,
   Button,
-  Heading,
+  Title,
 } from "@apee/components/ui";
 
 export default async function Home() {
   return (
     <div className="flex flex-1 flex-col gap-y-8 overflow-auto px-32 py-20">
-      <Heading level={1}>Apee Meal</Heading>
+      <Title>Apee Meal</Title>
 
       <section className="space-y-4">
-        <Heading level={2}>Buttons</Heading>
+        <Title size="medium">Buttons</Title>
 
         <div className="grid max-w-md grid-cols-3 justify-items-start gap-6">
           {Object.values(BUTTON_KIND).map((buttonKind) => (
@@ -34,7 +34,7 @@ export default async function Home() {
           ))}
         </div>
 
-        <Heading level={3}>With icons</Heading>
+        <Title size="small">With icons</Title>
 
         <div className="mt-4 grid max-w-md grid-cols-3 justify-items-start gap-6">
           {Object.values(BUTTON_KIND).map((buttonKind) => (
@@ -67,8 +67,8 @@ export default async function Home() {
       </section>
 
       <section className="space-y-4">
-        <Heading level={2}>Form elements</Heading>
-        <Heading level={3}>Checkboxes</Heading>
+        <Title size="medium">Form elements</Title>
+        <Title size="small">Checkboxes</Title>
         <div className="mt-4 grid max-w-md grid-cols-3 justify-items-start gap-6"></div>
       </section>
     </div>

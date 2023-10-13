@@ -29,7 +29,7 @@ interface LabelProps
   extends React.HTMLAttributes<HTMLSpanElement>,
     VariantProps<typeof paragraphVariants> {}
 
-export const Label = React.forwardRef<HTMLHeadingElement, LabelProps>(
+export const Label = React.forwardRef<HTMLSpanElement, LabelProps>(
   ({ className, size = "default", ...props }, ref) => {
     return (
       <span ref={ref} className={paragraphVariants({ size })} {...props} />

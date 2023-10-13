@@ -1,5 +1,5 @@
 import CollectionGrid from "@apee/components/CollectionGrid";
-import { Heading } from "@apee/components/ui";
+import { Title } from "@apee/components/ui";
 import { keystatic } from "@apee/lib/keystatic";
 import {
   hydrateAuthor,
@@ -47,7 +47,7 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
     <div className="flex flex-1 flex-col gap-y-32 overflow-auto px-32 py-20">
       <header className="grid grid-cols-2 px-24">
         <div className="flex flex-col gap-y-6">
-          <Heading level={1}>{collection.name}</Heading>
+          <Title>{collection.name}</Title>
           <DocumentRenderer
             document={collection.description}
             renderers={{

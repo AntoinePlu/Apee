@@ -2,7 +2,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-  Heading,
+  Title,
 } from "@apee/components/ui";
 import { keystatic } from "@apee/lib/keystatic";
 import { DocumentRenderer } from "@keystatic/core/renderer";
@@ -53,9 +53,7 @@ export default async function AboutPage() {
                   return <div className="space-y-6">{props.children}</div>;
               }
             },
-            heading: ({ children, level }) => (
-              <Heading level={level}>{children}</Heading>
-            ),
+            heading: ({ children, level }) => <Title>{children}</Title>, // TODO: implement heading levels
             paragraph: ({ children }) => (
               <p className="text-base text-white-11">{children}</p>
             ),

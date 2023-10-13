@@ -28,7 +28,7 @@ interface ParagraphProps
   extends React.HTMLAttributes<HTMLParagraphElement>,
     VariantProps<typeof paragraphVariants> {}
 
-export const Paragraph = React.forwardRef<HTMLHeadingElement, ParagraphProps>(
+export const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>(
   ({ className, size = "default", ...props }, ref) => {
     return <p ref={ref} className={paragraphVariants({ size })} {...props} />;
   },
