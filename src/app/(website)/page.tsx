@@ -25,7 +25,7 @@ export default async function Home() {
   }
 
   return (
-    <div className="flex flex-1 flex-col justify-center bg-[url('/assets/images/home.svg')] bg-cover">
+    <div className="flex flex-1 flex-col justify-center bg-[url('/images/home.svg')] bg-cover">
       <header className="p-6 xl:p-[120px]">
         <h1 className="text-xl/6 uppercase opacity-60">
           {homepageData?.intro}
