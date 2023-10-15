@@ -1,9 +1,4 @@
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-  Title,
-} from "@apee/components/ui";
+import { ErrorAlert, Flex, Title } from "@apee/components/ui";
 import { keystatic } from "@apee/lib/keystatic";
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import Image from "next/image";
@@ -15,24 +10,17 @@ export default async function AboutPage() {
 
   if (!content) {
     return (
-      <div className="flex flex-1 flex-col items-center justify-center">
-        <div>
-          <Alert variant="destructive">
-            <AlertTitle>Error</AlertTitle>
-            <AlertDescription>
-              <p>
-                Unable to fetch about page data, please make sure it exists in
-                Keystatic
-              </p>
-            </AlertDescription>
-          </Alert>
-        </div>
-      </div>
+      <Flex className="flex-col items-center justify-center">
+        <ErrorAlert>
+          Unable to fetch about page data, please make sure it exists in
+          Keystatic
+        </ErrorAlert>
+      </Flex>
     );
   }
 
   return (
-    <div className="pt-18 flex flex-1 flex-col gap-y-32 overflow-auto px-6 pt-16 xl:px-32 xl:py-20">
+    <Flex className="pt-18 flex-col gap-y-32 overflow-y-auto overflow-x-hidden px-6 pt-16 xl:px-32 xl:py-20">
       <DocumentRenderer
         document={content}
         renderers={{
@@ -89,6 +77,6 @@ export default async function AboutPage() {
           },
         }}
       />
-    </div>
+    </Flex>
   );
 }

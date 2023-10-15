@@ -35,6 +35,6 @@
 
 @layer base {
   body {
-    @apply bg-gray-background text-gray-text-high;
+    @apply bg-apee-black text-gray-text-high;
   }
 }

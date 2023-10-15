@@ -1,4 +1,4 @@
-import { Alert, AlertDescription, AlertTitle } from "@apee/components/ui";
+import { ErrorAlert, Flex } from "@apee/components/ui";
 import { trumpGothic } from "@apee/lib/fonts";
 import { keystatic } from "@apee/lib/keystatic";
 import { cn } from "@apee/lib/utils";
@@ -8,24 +8,16 @@ export default async function Home() {
 
   if (!homepageData) {
     return (
-      <div className="flex flex-1 flex-col items-center justify-center">
-        <div>
-          <Alert variant="destructive">
-            <AlertTitle>Error</AlertTitle>
-            <AlertDescription>
-              <p>
-                Unable to fetch homepage data, please make sure it exists in
-                Keystatic
-              </p>
-            </AlertDescription>
-          </Alert>
-        </div>
-      </div>
+      <Flex className="flex-col items-center justify-center">
+        <ErrorAlert>
+          Unable to fetch homepage data, please make sure it exists in Keystatic
+        </ErrorAlert>
+      </Flex>
     );
   }
 
   return (
-    <div className="flex flex-1 flex-col justify-center bg-[url('/images/home.svg')] bg-cover">
+    <Flex className="flex-col justify-center bg-[url('/images/home.svg')] bg-cover">
       <header className="p-6 xl:p-[120px]">
         <h1 className="text-xl/6 uppercase opacity-60">
           {homepageData?.intro}
@@ -59,6 +51,6 @@ export default async function Home() {
           </span>
         </a>
       </header>
-    </div>
+    </Flex>
   );
 }

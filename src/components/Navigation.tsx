@@ -1,7 +1,6 @@
 "use client";
 import routes from "@apee/app/routes";
 import List from "@apee/components/List";
-import NavigationToggle from "@apee/components/NavigationToggle";
 import {
   AdminIcon,
   BurgerIcon,
@@ -36,12 +35,8 @@ export default function Navigation({ collections }: NavigationProps) {
   }));
 
   return (
-    <nav className="flex w-64 flex-col justify-between px-4 pb-4 pt-8">
-      <section className="flex flex-col gap-y-4">
-        <div>
-          <NavigationToggle />
-        </div>
-
+    <nav className="flex w-full flex-col justify-between p-4 pr-0 pt-8">
+      <section className="flex flex-col gap-y-4 pt-16">
         <div className="flex flex-col gap-y-6">
           <Button
             kind="primary"
