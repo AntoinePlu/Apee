@@ -26,21 +26,124 @@ export const ICON_BUTTON_EMPHASIS = {
 } as const;
 
 export const ICON_BUTTON_SIZE = {
-  SMALL: "small",
-  REGULAR: "regular",
   LARGE: "large",
+  REGULAR: "regular",
+  SMALL: "small",
 } as const;
 
 const iconButtonVariants = cva(DEFAULT_CLASSNAMES, {
   variants: {
     size: {
       small: "h-6 w-6 rounded-sm",
-      medium: "h-9 w-9 rounded",
+      regular: "h-9 w-9 rounded",
       large: "h-12 w-12 rounded-md",
+    },
+    kind: {
+      primary: "",
+      accent: "",
+      destructive: "",
+    },
+    emphasis: {
+      ghost: "",
+      low: "border",
+      medium: "border",
+      high: "",
+    },
+  },
+  compoundVariants: [
+    // Primary Variants
+    {
+      kind: "primary",
+      emphasis: "ghost",
+      className:
+        "text-white-9 hover:bg-white-4 hover:text-white-10 active:bg-white-5",
+    },
+    {
+      kind: "primary",
+      emphasis: "low",
+      className:
+        "border-white-6 text-white-9 hover:border-white-8 hover:bg-white-2 hover:text-white-10 active:border-white-9 active:bg-white-3",
+    },
+    {
+      kind: "primary",
+      emphasis: "medium",
+      className:
+        "border-white-5 bg-white-3 text-white-9 hover:border-white-7 hover:bg-white-4 hover:text-white-10 active:border-white-8 active:bg-white-5",
+    },
+    {
+      kind: "primary",
+      emphasis: "high",
+      className:
+        "bg-white-9 text-white-11 hover:bg-white-10 active:bg-white-11",
+    },
+    // Accent Variants
+    {
+      kind: "accent",
+      emphasis: "ghost",
+      className:
+        "bg-orange-a1 text-orange-a9 hover:bg-orange-a4 hover:text-orange-a10 active:bg-orange-a5",
+    },
+    {
+      kind: "accent",
+      emphasis: "low",
+      className:
+        "border-orange-a6 bg-orange-a1 text-orange-a9 hover:border-orange-a8 hover:bg-orange-a2 hover:text-orange-a10 active:border-orange-a9 active:bg-orange-a3",
+    },
+    {
+      kind: "accent",
+      emphasis: "medium",
+      className:
+        "border-orange-a5 bg-orange-a3 text-orange-a9 hover:border-orange-a7 hover:bg-orange-a4 hover:text-orange-a10 active:border-orange-a8 active:bg-orange-a5",
+    },
+    {
+      kind: "accent",
+      emphasis: "high",
+      className:
+        "bg-orange-a9 text-white-11 hover:bg-orange-a10 active:bg-white-11",
+    },
+    // Accent Variants
+    {
+      kind: "destructive",
+      emphasis: "ghost",
+      className:
+        "bg-violet-a1 text-violet-a9 hover:bg-violet-a4 hover:text-violet-a10 active:bg-violet-a5",
+    },
+    {
+      kind: "destructive",
+      emphasis: "low",
+      className:
+        "border-violet-a6 bg-violet-a1 text-violet-a9 hover:border-violet-a8 hover:bg-violet-a2 hover:text-violet-a10 active:border-violet-a9 active:bg-violet-a3",
+    },
+    {
+      kind: "destructive",
+      emphasis: "medium",
+      className:
+        "border-violet-a5 bg-violet-a3 text-violet-a9 hover:border-violet-a7 hover:bg-violet-a4 hover:text-violet-a10 active:border-violet-a8 active:bg-violet-a5",
+    },
+    {
+      kind: "destructive",
+      emphasis: "high",
+      className:
+        "bg-violet-a9 text-white-11 hover:bg-violet-a10 active:bg-white-11",
+    },
+  ],
+  defaultVariants: {
+    size: "regular",
+    kind: "primary",
+    emphasis: "medium",
+  },
+});
+
+const iconVariants = cva("", {
+  variants: {
+    size: {
+      small: "h-4 w-4",
+      regular: "h-5 w-5",
+      large: "h-6 w-6",
     },
   },
   defaultVariants: {
-    size: "medium",
+    size: "regular",
   },
 });
 
@@ -52,14 +155,17 @@ export interface IconButtonProps
 }
 
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ className, size, icon: Icon, iconClassName, ...props }, ref) => {
+  (
+    { className, size, kind, emphasis, icon: Icon, iconClassName, ...props },
+    ref,
+  ) => {
     return (
       <button
-        className={cn(iconButtonVariants({ size }), className)}
+        className={cn(iconButtonVariants({ size, kind, emphasis }), className)}
         ref={ref}
         {...props}
       >
-        <Icon className={iconClassName} />
+        <Icon className={cn("icon", iconVariants({ size }), iconClassName)} />
       </button>
     );
   },

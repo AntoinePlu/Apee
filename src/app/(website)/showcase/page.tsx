@@ -1,8 +1,13 @@
-import { ClearIcon } from "@apee/components/icons";
+import { ClearIcon, SettingIcon } from "@apee/components/icons";
 import {
   BUTTON_EMPHASIS,
   BUTTON_KIND,
   Button,
+  Flex,
+  ICON_BUTTON_EMPHASIS,
+  ICON_BUTTON_KIND,
+  ICON_BUTTON_SIZE,
+  IconButton,
   Title,
 } from "@apee/components/ui";
 
@@ -62,6 +67,35 @@ export default async function Home() {
                 </div>
               ))}
             </>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <Title size="medium">Icon Buttons</Title>
+
+        <div className="grid grid-cols-4 gap-6">
+          {Object.values(ICON_BUTTON_EMPHASIS).map((iconButtonEmphasis) => (
+            <Flex key={iconButtonEmphasis} className="flex-col gap-4">
+              {Object.values(ICON_BUTTON_KIND).flatMap((iconButtonKind) => (
+                <Flex className="space-x-4">
+                  {Object.values(ICON_BUTTON_SIZE).map((iconButtonSize) => (
+                    <Flex
+                      className="h-12 w-12 items-center justify-center"
+                      key={`${iconButtonSize}-${iconButtonKind}`}
+                    >
+                      <IconButton
+                        data-combination={`${iconButtonEmphasis}-${iconButtonKind}-${iconButtonSize}`}
+                        icon={SettingIcon}
+                        size={iconButtonSize}
+                        kind={iconButtonKind}
+                        emphasis={iconButtonEmphasis}
+                      />
+                    </Flex>
+                  ))}
+                </Flex>
+              ))}
+            </Flex>
           ))}
         </div>
       </section>
