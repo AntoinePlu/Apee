@@ -12,12 +12,31 @@ const DEFAULT_CLASSNAMES = cn(
   "",
 );
 
+export const ICON_BUTTON_KIND = {
+  PRIMARY: "primary",
+  ACCENT: "accent",
+  DESTRUCTIVE: "destructive",
+} as const;
+
+export const ICON_BUTTON_EMPHASIS = {
+  GHOS: "ghost",
+  LOW: "low",
+  MEDIUM: "medium",
+  HIGH: "high",
+} as const;
+
+export const ICON_BUTTON_SIZE = {
+  SMALL: "small",
+  REGULAR: "regular",
+  LARGE: "large",
+} as const;
+
 const iconButtonVariants = cva(DEFAULT_CLASSNAMES, {
   variants: {
     size: {
-      small: "h-6 w-6 rounded-lg",
-      medium: "h-10 w-10 rounded-lg",
-      large: "h-12 w-12 rounded-lg",
+      small: "h-6 w-6 rounded-sm",
+      medium: "h-9 w-9 rounded",
+      large: "h-12 w-12 rounded-md",
     },
   },
   defaultVariants: {

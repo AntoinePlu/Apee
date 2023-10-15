@@ -1,3 +1,5 @@
+const plugin = require("tailwindcss/plugin");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -75,9 +77,11 @@ module.exports = {
         flex: "flex-basis",
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        xs: "calc(var(--radius) - 4px)",
+        sm: "calc(var(--radius) - 2px)",
+        DEFAULT: "var(--radius)",
+        md: "calc(var(--radius) + 2px)",
+        lg: "calc(var(--radius) + 4px)",
       },
       keyframes: {
         "accordion-down": {
@@ -95,7 +99,10 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    plugin(({ addVariant }) => addVariant("nav-open", ".nav-open &")),
+  ],
 };
 
 function generateColorScale(color) {

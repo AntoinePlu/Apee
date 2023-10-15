@@ -40,13 +40,13 @@ export default async function Home() {
         </div>
         <a
           className={cn(
-            "mt-10 inline-flex items-center justify-center rounded-md p-0.5 text-sm/9",
+            "mt-10 inline-flex items-center justify-center rounded-sm p-0.5 text-sm/9",
             "bg-gradient-to-r from-apee-ctaOrange via-apee-ctaYellow to-apee-ctaEgg",
             "bg-[length:200%] bg-left transition-all duration-200 hover:bg-[length:100%]",
           )}
           href={`mailto:${homepageData.email}`}
         >
-          <span className="rounded bg-apee-black px-5 font-bold uppercase text-white">
+          <span className="rounded-xs bg-apee-black px-5 font-bold uppercase text-white">
             {homepageData?.email.replace("@", " @ ")}
           </span>
         </a>

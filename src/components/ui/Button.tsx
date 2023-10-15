@@ -45,7 +45,7 @@ const buttonVariants = cva(DEFAULT_CLASSNAMES, {
   variants: {
     size: {
       small: "h-9 pl-3 pr-4",
-      regular: "h-9 rounded-lg pl-3 pr-2",
+      regular: "h-9 rounded pl-3 pr-2",
       large: "h-9 pl-3 pr-4",
     },
     kind: {
@@ -238,7 +238,7 @@ const accelVariants = cva("", {
     ...KIND_AND_EMPHASIS_VARIANTS,
     size: {
       small: "",
-      regular: "h-5 w-5 rounded text-xs/5",
+      regular: "rounded-xs h-5 w-5 text-xs/5",
       large: "",
     },
   },

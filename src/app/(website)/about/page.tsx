@@ -64,7 +64,7 @@ export default async function AboutPage() {
                   alt={`Logo for ${organization}`}
                   width={48}
                   height={48}
-                  className="rounded-lg"
+                  className="rounded"
                 />
                 <div className="flex flex-col justify-between">
                   <h3 className="text-lg/none font-semibold">{title}</h3>

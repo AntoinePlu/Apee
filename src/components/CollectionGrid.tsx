@@ -24,7 +24,7 @@ export default function CollectionGrid({
             <Link href={routes.collectionItem(collectionSlug, bookmark.slug)}>
               {bookmark.picture ? (
                 <Image
-                  className="w-full rounded-lg"
+                  className="w-full rounded"
                   src={bookmark.picture}
                   width={300}
                   height={200}
