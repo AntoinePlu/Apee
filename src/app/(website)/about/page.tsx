@@ -20,7 +20,7 @@ export default async function AboutPage() {
   }
 
   return (
-    <Flex className="pt-18 flex-col gap-y-32 overflow-y-auto overflow-x-hidden px-6 pt-16 xl:px-32 xl:py-20">
+    <Flex className="flex-col gap-y-32 overflow-y-auto overflow-x-hidden px-6 pt-20 xl:px-32 xl:py-20">
       <DocumentRenderer
         document={content}
         renderers={{

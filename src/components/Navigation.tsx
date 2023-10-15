@@ -35,8 +35,8 @@ export default function Navigation({ collections }: NavigationProps) {
   }));
 
   return (
-    <nav className="flex w-full flex-col justify-between p-4 pr-0 pt-8">
-      <section className="flex flex-col gap-y-4 pt-16">
+    <nav className="flex w-full flex-col justify-between p-4 pt-8">
+      <section className="flex flex-col gap-y-4">
         <div className="flex flex-col gap-y-6">
           <Button
             kind="primary"
@@ -45,7 +45,7 @@ export default function Navigation({ collections }: NavigationProps) {
             accel="/"
             className="[&>.label]:text-white-11"
           >
-            Search
+            Go to…
           </Button>
 
           <List items={MAIN_MENU} />
@@ -56,6 +56,13 @@ export default function Navigation({ collections }: NavigationProps) {
               <h2 className="text-xs uppercase text-white-9">Collections</h2>
             </header>
 
+            <List items={collectionMenu} />
+            <List items={collectionMenu} />
+            <List items={collectionMenu} />
+            <List items={collectionMenu} />
+            <List items={collectionMenu} />
+            <List items={collectionMenu} />
+            <List items={collectionMenu} />
             <List items={collectionMenu} />
           </section>
         </div>
