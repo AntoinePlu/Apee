@@ -57,13 +57,6 @@ export default function Navigation({ collections }: NavigationProps) {
             </header>
 
             <List items={collectionMenu} />
-            <List items={collectionMenu} />
-            <List items={collectionMenu} />
-            <List items={collectionMenu} />
-            <List items={collectionMenu} />
-            <List items={collectionMenu} />
-            <List items={collectionMenu} />
-            <List items={collectionMenu} />
           </section>
         </div>
       </section>
