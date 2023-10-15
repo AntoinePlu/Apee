@@ -186,12 +186,14 @@ export interface IconButtonLinkProps
 }
 function IconButtonLink({
   size,
+  kind,
+  emphasis,
   icon: Icon,
   iconClassName,
   ...props
 }: IconButtonLinkProps) {
   return (
-    <Link className={iconButtonVariants({ size })} {...props}>
+    <Link className={iconButtonVariants({ size, kind, emphasis })} {...props}>
       <Icon className={iconClassName} />
     </Link>
   );

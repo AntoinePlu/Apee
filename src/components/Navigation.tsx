@@ -64,6 +64,7 @@ export default function Navigation({ collections }: NavigationProps) {
       <section className="flex items-center justify-between">
         <IconButton
           size="large"
+          emphasis="ghost"
           title="Settings"
           icon={SettingIcon}
           iconClassName="h-6 w-6"
@@ -72,6 +73,7 @@ export default function Navigation({ collections }: NavigationProps) {
           <>
             <IconButtonLink
               size="large"
+              emphasis="ghost"
               href={routes.admin.home}
               title="Go to admin"
               icon={AdminIcon}
@@ -79,6 +81,7 @@ export default function Navigation({ collections }: NavigationProps) {
             />
             <IconButtonLink
               size="large"
+              emphasis="ghost"
               href={routes.admin.showcase}
               title="Go to design system showcase"
               icon={BurgerIcon}
@@ -88,6 +91,7 @@ export default function Navigation({ collections }: NavigationProps) {
         )}
         <IconButton
           size="large"
+          emphasis="ghost"
           title="Permalink to this page"
           icon={LinkIcon}
           iconClassName="h-6 w-6"

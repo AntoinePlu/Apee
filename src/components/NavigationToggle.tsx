@@ -18,7 +18,8 @@ export default function NavigationToggle() {
         Menu
       </Button>
       <IconButton
-        size="medium"
+        size="regular"
+        emphasis="ghost"
         onClick={toggleNavigation}
         icon={SidebarIcon}
         className="hidden md:inline-flex"
