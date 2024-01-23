@@ -1,7 +1,7 @@
-import { Title } from "@apee/components/ui";
+import { Quote, Title } from "@apee/components/ui";
 import { keystatic } from "@apee/lib/keystatic";
 import { hydratePost, loadModel } from "@apee/lib/models";
-// import { DocumentRenderer } from "@keystatic/core/renderer";
+import { DocumentRenderer } from "@keystatic/core/renderer";
 import { notFound } from "next/navigation";
 
 type PostPageProps = {
@@ -28,6 +28,15 @@ export default async function CollectionPage({ params }: PostPageProps) {
       <header className="grid grid-cols-2 px-24">
         <div className="flex flex-col gap-y-6">
           <Title>{post.title}</Title>
+          <DocumentRenderer
+            document={post.content}
+            renderers={{
+              block: {
+                heading: ({ children }) => <Title> {children}</Title>, // TODO: Handle title sizes
+                blockquote: Quote,
+              },
+            }}
+          />
         </div>
         <div />
       </header>

@@ -5,4 +5,5 @@ export * from "./Flex";
 export * from "./IconButton";
 export * from "./Label";
 export * from "./Paragraph";
+export * from "./Quote";
 export * from "./Title";

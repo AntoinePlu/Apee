@@ -84,6 +84,10 @@ export default config({
     posts: collection({
       label: "Posts",
       slugField: "title",
+      entryLayout: "content",
+      format: {
+        contentField: "content",
+      },
       path: "src/content/posts/*/",
       schema: {
         title: fields.slug({
@@ -91,6 +95,11 @@ export default config({
             label: "Title",
             description: "The title of the post",
           },
+        }),
+        content: fields.document({
+          label: "Content",
+          formatting: true,
+          links: true,
         }),
       },
     }),
