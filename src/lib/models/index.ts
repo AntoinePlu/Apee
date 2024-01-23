@@ -3,6 +3,7 @@ import { WithSlug, keystatic } from "@apee/lib/keystatic";
 export * from "./Author";
 export * from "./Bookmark";
 export * from "./Collection";
+export * from "./Post";
 
 export async function loadModel<KsType, ModelType>(
   collectionName: keyof typeof keystatic.collections,

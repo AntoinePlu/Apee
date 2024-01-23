@@ -17,6 +17,7 @@ export type KsAboutPage = Singleton<"aboutPage">;
 export type KsCollection = Collection<"collections">;
 export type KsAuthor = Collection<"authors">;
 export type KsBookmark = Collection<"bookmarks">;
+export type KsPost = Collection<"posts">;
 export type KsTag = Collection<"tags">;
 
 export type WithSlug<T> = {

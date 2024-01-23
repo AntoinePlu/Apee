@@ -81,6 +81,19 @@ export default config({
         }),
       },
     }),
+    posts: collection({
+      label: "Posts",
+      slugField: "title",
+      path: "src/content/posts/*/",
+      schema: {
+        title: fields.slug({
+          name: {
+            label: "Title",
+            description: "The title of the post",
+          },
+        }),
+      },
+    }),
     collections: collection({
       label: "Collections",
       path: "src/content/collections/*",
